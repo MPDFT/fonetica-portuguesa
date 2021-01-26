@@ -104,54 +104,6 @@
 				</executions>
 			</plugin>
 			
-			<!-- plugins para o CI -->
-			<plugin>
-				<groupId>org.jacoco</groupId>
-				<artifactId>jacoco-maven-plugin</artifactId>
-				<version>0.8.1</version>
-				<executions>
-					<execution>
-						<id>pre-unit-test</id>
-						<goals>
-							<goal>prepare-agent</goal>
-						</goals>
-					</execution>
-					<execution>
-						<id>post-unit-test</id>
-						<phase>test</phase>
-						<goals>
-							<goal>report</goal>
-						</goals>
-					</execution>
-				</executions>
-			</plugin>
-
-			<plugin>
-				<groupId>external.atlassian.jgitflow</groupId>
-				<artifactId>jgitflow-maven-plugin</artifactId>
-				<version>1.0-m5.1</version>
-				<configuration>
-					<username>${CI_USER}</username>
-					<password>${CI_PASSWORD}</password>
-
-					<noDeploy>no</noDeploy>
-					<pushReleases>false</pushReleases>
-
-					<allowSnapshots>true</allowSnapshots>
-					<localOnly>true</localOnly>
-					<offline>true</offline>
-
-					<allowUntracked>true</allowUntracked>
-					<scmCommentPrefix>[RELEASE]</scmCommentPrefix>
-
-					<flowInitContext>
-						<masterBranchName>${CI_MASTER_BRANCH}</masterBranchName>
-						<developBranchName>${CI_DEVELOP_BRANCH}</developBranchName>
-						<versionTagPrefix>${project.artifactId}-</versionTagPrefix>
-					</flowInitContext>
-				</configuration>
-			</plugin>
-            <!--  -->
 		</plugins>
 	</build>
 </project>
